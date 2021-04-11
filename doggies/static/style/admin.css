@@ -1,0 +1,40 @@
+
+#header {
+    height: 70px;
+    background:#21368B;
+    color: #fff;
+  }
+  
+  #branding h1 {
+    color: #fff;
+  }
+  
+  a:link,
+  a:visited {
+    color:#21368B;
+    text-decoration: none;
+
+  }
+
+
+a:focus {
+    text-decoration: none;
+}
+  
+  div.breadcrumbs {
+    background: #9a9cea;
+    color: #21368B;
+  }
+  
+  div.breadcrumbs a {
+    color: #9a9cea;
+  }
+  
+  .module h2, .module caption, .inline-group h2 {
+    background: #a2b9ee;
+  }
+  
+  .button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #21368B;
+    color: #fff;
+  }

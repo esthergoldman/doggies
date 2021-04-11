@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<!--message-->
+
+
+{% if first_name %}
+
+<center>
+    <h1>Thank you!<br>{{ first_name|title }}</h1>
+    <p>We'll be in touch.<br>Shortly!</p>
+</center>
+<!--Go back -->
+    <div class="offset-5 col-lg-2">
+        <a href= "{% url 'index' %}" class="btn btn-success btn-block">Home</a>
+    </div>
+
+{% else %}
+
+<!--Contact Form-->
+<section class="Form my-4 mx-5">
+    <div class="container" id="login">
+        <div class="row no-gutters">
+            <div class="col-lg-5">
+                <img id="picture2" src="{% static 'img/register.jpg' %}" class="img-fluid" alt"">
+            </div>
+            <div class="col-lg-7 px-5 pt-5">
+                <h1 class="font-weight-bold py-3">Hey There!</h1>
+                <h4>Get in touch</h4>
+                <form action="{% url 'contact' %}" method="POST">
+                    {% csrf_token %}
+                     <div class="form-row">
+                        <div class="col-lg-7">
+                            <input name="first_name" type="first_name" placeholder="First Name" class="form-control my-3 p-4">
+                        </div>
+                    </div> 
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input name="last_name" type="last_name" placeholder="Last Name" class="form-control my-3 p-4">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input name="phone" type="phone" placeholder="Phone" class="form-control my-3 p-4">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input name="email" type="email" placeholder="Email" class="form-control my-3 p-4">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <textarea name="message" class="form-control mb-30" placeholder="Your Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7 shadow-none">
+                            <button type="submit" class="btn1 shadow-none mt-3 mb-5">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--map-->
+<section class="land">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-3 text-center">
+            <h1 class="font-weight-bold">Contact us?</h1>
+            <address>
+            <strong>Doggies</strong><br>
+            Derech Yitshak Rabin 53<br>
+            Giv'atayim<br>
+            Phone: (123) 456-7890
+            </address>
+            <address>
+            <strong>Email</strong><br>
+            doggies.last@doggies.com
+            </address>
+            </div>  
+        </div>
+    </div>
+</section>
+<section>
+
+    <div class="row w-1000">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.0979629932212!2d34.80796121470487!3d32.066599027175144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4ba92880f82b%3A0x297a693864b1eb22!2sDerech%20Yitshak%20Rabin%2053%2C%20Giv&#39;atayim!5e0!3m2!1ses!2sil!4v1617896893111!5m2!1ses!2sil" width="2000" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+{% endif %}
+
+
+{% endblock %}

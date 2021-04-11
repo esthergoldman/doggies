@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static%}
+{% load humanize%}
+
+{% block title %} Events {% endblock %}
+
+{% block content %}
+
+<!--search-->
+
+<div class="container text-center col-lg-4">
+<h1>All Events </h1>
+<br>
+    <form action="{% url 'search_events' %}" method=POST>
+    {% csrf_token %}
+
+        <div class="input-group">
+            <input type="text" name="keywords" class="form-control"  placeholder="search month">
+                <div class="input-group-btn">
+                <button class="btn btn-success" type="submit">
+                <i class="fas fa-search"></i></button>
+                </div>
+        </div>
+    </form>
+</div>
+<!--events-->
+<section class="our-team">
+    <div class="container">
+        <div class="row">
+            {% for event in one_event %}
+                <div class="col-lg-4 mb-5">
+                <div class="card shadow">
+                    
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h5 class="card-title text-info">{{ event.name|title }}</h5>
+                                <i class="fas fa-map-marker-alt"></i> {{ event.location|title }}, {{ event.location.city|title }}</p>
+                            </div>
+                            <hr>
+                                <div class="row py-2 text-secondary text-center">
+                                    <div class="col-12">
+                                    <i class="far fa-calendar-alt"></i> Event Date: {{ event.event_date| naturalday }} </div>
+                                </div>
+                        
+                        </div>
+                </div>
+            </div>
+            
+            {% endfor %}
+        
+           
+        </div>
+    </div>
+</section>
+{% endblock %}

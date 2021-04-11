@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static%}
+{% load humanize%}
+
+{% block title %} {{ one_pet.name }} {% endblock %}
+
+{% block content %}
+
+<section class="our-team">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card shadow">
+                    <div class="img-container inner">
+                        <img src="{{ one_pet.photo.url }}" alt="" class="card-img-top" width="20" height="700">
+                    </div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h1 class="card-title text-info"> {{ one_pet.name }} </h1>
+                                <i class="fas fa-map-marker text-secondary"></i> {{ one_pet.area }} </p>
+                            </div>
+                            <hr>
+                                <div class="row py-2 text-secondary text-center">
+                                    <div class="col-6">
+                                    <i class="fas fa-venus-mars"></i> {{ one_pet.sex }} </div>
+                                    <div class="col-6">
+                                    <i class="fas fa-tint"></i> {{ one_pet.color }} </div>
+                                </div>
+                                <div class="row py-2 text-secondary text-center">
+                                    <div class="col-6">
+                                    <i class="fas fa-dog"></i> {{ one_pet.size }}</div>
+                                    <div class="col-6">
+                                    <i class="fas fa-paw"></i> {{ one_pet.age }} </div>
+                                </div>                
+                                <div class="row py-2 text-secondary">
+                                    <div class="col-12 text-center">
+                                    <h2>About me</h2>
+                                    <p>{{ one_pet.description }}</p>
+                                    </div>
+                                </div>
+                                <div class="row py-2 text-secondary">
+                                    <div class="col-12 text-center">
+                                    <h6>Who´s taking care of me?</h6>
+                                    <i class="fas fa-user"></i> {{ one_pet.caretaker }}</div>
+                                </div>
+                                <div class="row py-2 text-secondary text-center">
+                                    <div class="col-12">
+                                    <i class="fas fa-clock"></i> Arrival Date: {{ one_pet.arrival_date| naturalday }}</div>
+                                </div>
+                        
+          <button class="btn-success btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Adopt me!</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--adopt area-->
+<div class="modal fade" id="inquiryModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel">Hello!</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'contact2' %}" method="POST">
+            {% csrf_token %}
+            
+            <input type="hidden" name="pet_id" value="{{one_pet.id}}">
+            <input type="hidden" name="pet" value="{{one_pet.name}}">
+             <div class="form-group">
+                        <img src="{{ one_pet.photo.url }}" alt="" class="card-img-top" width="20" height="700">
+            </div>
+            <div class="form-group">
+              <label name="pets" class="col-form-label">I want to meet and adopt: {{ one_pet.name }}</label>
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-form-label">Name:</label>
+              <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-form-label">Email:</label>
+              <input type="email" name="email" class="form-control"  required>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="col-form-label">Phone:</label>
+              <input type="text" name="phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="message" class="col-form-label">Message:</label>
+              <textarea name="message" class="form-control"></textarea>
+            </div>
+            <hr>
+            <input type="submit" value="Send" class="btn btn-block btn-success">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ 
+<!--Go back -->
+    <div class="offset-5 col-lg-2">
+        <a href= "{% url 'adopt' %}" class="btn btn-dark btn-block">Go to adopt page</a>
+    </div>
+
+
+  
+
+{% endblock %}

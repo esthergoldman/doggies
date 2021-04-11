@@ -1,0 +1,61 @@
+{% load static%}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static 'img/doggies.png' %}" class="logo" alt="">
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+          <ul class="navbar-nav">
+        <li 
+        {% if 'about' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+          >
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+        <li
+        {% if 'adopt' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+          >
+          <a class="nav-link" href="{% url 'adopt' %}">Adopt</a>
+        </li>
+        <li
+        {% if 'list' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+          >
+          <a class="nav-link" href="{% url 'events' %}">Events</a>
+        </li>
+        <li
+        {% if 'contact' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+          >
+          <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+        </li>
+        <li
+        {% if 'found' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+          >
+          <a class="nav-link" href="{% url 'found' %}">Lost &#38; Found </a>
+        </li>
+        
+    </div>
+  </div>
+</nav>

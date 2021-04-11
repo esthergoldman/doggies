@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize%}
+
+{% block title %} Adopt {% endblock %}
+
+{% block content %}
+
+<!--search-->
+<section class="main">
+    <div id="showcase2">
+        <div class=" landing-text">              
+                <div class="card ">
+                    <form action="{% url 'search' %}">
+                    <div class="card-body form-inline">
+                        <div class="col-lg-3 ">
+                            <select name="sex" class="mt-2 form-control" id="">
+                                <option selected="true" disabled="disabled">Sex</option>
+                                {% for key,value in sex_choices.items %}
+                                    <option value="{{ key }}"
+                                    {% if key == values.sex %}
+                                        selected
+                                    {% endif %}
+                                    >{{value}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-lg-3 ">
+                            <select name="color" class="mt-2 form-control"  id="">
+                                <option selected="true" disabled="disabled">Color</option>
+                                {% for key,value in color_choices.items %}
+                                     <option value="{{ key }}"
+                                    {% if key == values.color %}
+                                        selected
+                                    {% endif %}
+                                    >{{value}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-lg-3 ">
+                            <select name="size" class="mt-2 form-control"  id="">
+                                <option selected="true" disabled="disabled">Size</option>
+                                {% for key,value in size_choices.items %}
+                                     <option value="{{ key }}"
+                                    {% if key == values.size %}
+                                        selected
+                                    {% endif %}
+                                    >{{value}}</option>                                
+                                    {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-lg-3 ">
+                            <select name="area" class="mt-2 form-control" id="">
+                                <option selected="true" disabled="disabled">Area</option>
+                                {% for key,value in area_choices.items %}
+                                    <option value="{{ key }}"
+                                    {% if key == values.area %}
+                                        selected
+                                    {% endif %}
+                                    >{{value}}</option>                                
+                                    {% endfor %}
+                            </select>
+                        </div>
+                        <button class="btn btn-block btn-success mt-4 btn2" type="submit">Search</button>
+                    </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+   </section>
+
+<!--pets cards-->
+<section class="our-team">
+    <div class="container">
+        <div class="row">
+        {% if pets %}
+            {% for pet in pets %}
+                <div class="col-lg-4 mb-3">
+                <div class="card shadow">
+                    <div class="img-container inner">
+                        <img src="{{ pet.photo.url }}" alt="" class="card-img-top" width="460" height="345">
+                    </div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h5 class="card-title text-info">{{ pet.name }}</h5>
+                                <i class="fas fa-map-marker text-secondary"></i> {{ pet.area }} </p>
+                            </div>
+                            <hr>
+                                <div class="row py-2 text-secondary text-center">
+                                    <div class="col-6">
+                                    <i class="fas fa-venus-mars"></i> {{ pet.sex }} </div>
+                                    <div class="col-6">
+                                    <i class="fas fa-tint"></i> {{ pet.color }} </div>
+                                </div>
+                                <div class="row py-2 text-secondary text-center">
+                                    <div class="col-6">
+                                    <i class="fas fa-dog"></i> {{ pet.size }}</div>
+                                    <div class="col-6">
+                                    <i class="fas fa-paw"></i> {{ pet.age }}</div>
+                                </div><br>                
+                                <div class="row py-2 text-secondary">
+                                    <div class="col-12 text-center">
+                                    <h6>Who's taking care of me?</h6>
+                                    <i class="fas fa-user"></i> {{ pet.caretaker }} </div>
+                                </div>
+                                <div class="row py-2 text-secondary text-center">
+                                    <div class="col-12">
+                                    <i class="fas fa-clock"></i> Arrival Date: {{ pet.arrival_date| naturalday }} </div>
+                                </div>
+                        
+                                <a href="{% url 'pet' pet.id %}" class="btn btn-success btn-block">More info</a>
+                        </div>
+                </div>
+            </div>
+            
+        
+            {% endfor %}
+        {% else %}
+        <div class="col-lg-12">
+            <center>Whoops...<br>We couldn't find the pet your were looking for at this time<br>Try again<br> &#128054; </center>
+        </div>
+        {% endif %}
+           
+        </div>
+    </div>
+</section>
+
+{% endblock %}

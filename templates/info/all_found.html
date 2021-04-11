@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static%}
+{% load humanize%}
+
+{% block title %} Found{% endblock %}
+
+{% block content %}
+<section class="our-team">
+    <div class="container">
+        <div class="row">
+            {% for found in pet_found %}
+                <div class="col-lg-4 mb-5">
+                <div class="card shadow">
+                    <div class="img-container inner">
+                        <img src="{{ found.photo.url }}" alt="" class="card-img-top" width="460" height="345">
+                    </div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h5 class="card-title text-info">{{ found.city|title }}</h5>
+                                <i class="fas fa-map-marker text-secondary"></i> {{ found.location|title }} </p>
+                            </div>
+                            <hr>
+                                <div class="row py-2 ">
+                                    <div class="col-12 text-center">
+                                    <h6>Who found me?</h6>
+                                    <i class="fas fa-user"></i> {{ found.name|title }} </div>
+                                </div>
+                                 <div class="row py-2 text-secondary text-center">
+                                    <div class="col-12">
+                                    <i class="fas fa-phone-alt"></i> {{ found.phone }} </div>
+                                </div>
+                                <div class="row py-2 text-secondary text-center">
+                                    <div class="col-12">
+                                    <i class="fas fa-clock"></i> Found Date: {{ found.upload_date| naturalday }} </div>
+                                </div>
+                        
+                        </div>
+                </div>
+            </div>
+            
+            {% endfor %}
+        
+           
+        </div>
+    </div>
+</section>
+<!-- pagination-->
+<nav aria-label="Page navigation example">
+    {% if pet_found.has_other_pages %}
+        <ul class="pagination justify-content-center">
+            {% if pet_found.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{pet_found.previous_page_number}}" aria-label="Previous">
+                    <span aria-hidden="true">&#x2190;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link">&#x2190;</a>
+            </li>
+            {% endif %}
+                {% for i in pet_found.paginator.page_range %}
+                    {% if pet_found.number == i %}
+                    <li class="page-item active">
+                        <a class="page-link">{{i}}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{i}}">{{i}}</a>
+                    </li>
+                    {% endif %}
+                {% endfor%}
+                    {% if pet_found.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{pet_found.next_page_number}}">&#x2192;</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link">&#x2192;</a>
+                    </li>
+                    {% endif%}
+        </ul>
+    {% endif %}
+</nav>
+
+{% endblock %}

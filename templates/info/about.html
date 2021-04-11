@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block title %} About {% endblock %}
+
+{% block content %}
+<!-- how to adopt-->
+<section class="land">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-6">
+            <h1 class="font-weight-bold">About us?</h1><br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in accumsan massa. In ut faucibus mi, sed porttitor nisi. Fusce nec dui vitae turpis elementum varius a in magna. Quisque aliquam arcu varius enim posuere, sit amet fermentum felis sagittis. Vivamus posuere lacinia tellus at molestie.<br><br>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean sed felis in sem venenatis consectetur eu quis dui.
+
+            Vivamus accumsan mi nulla, vel imperdiet diam luctus a. Pellentesque vitae ultrices tellus. Nam elit libero, dictum quis felis id, auctor tempor lectus. Donec eget tellus sit amet justo tempus sagittis vitae et nulla. Curabitur risus ipsum, sodales nec risus ut, tincidunt eleifend dui. Mauris molestie varius justo sed vulputate. Cras nibh lacus, sodales at nibh at, aliquam tristique orci. Sed at mi lacinia, tempus dui at, consequat quam. Sed vulputate auctor lectus sit amet consequat. Maecenas eleifend vitae enim in ultrices. Vivamus vitae magna elementum arcu malesuada suscipit. Suspendisse potenti. Suspendisse pharetra quis magna id dictum.
+            </p>
+            </div>
+                <div class="offset-4 col-lg-2">
+                    <a href= "{% url 'contact' %}" class="btn btn-success btn-block">Contact us!</a>
+                </div>
+        </div>
+    </div>
+
+<!--team-->
+</section>
+    <div class="container">
+        <section class="jumbotron text-left bg-light">
+            <h1 class="display-5 font-weight-bold ">The Team</h1>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in accumsan massa. In ut faucibus mi, sed porttitor nisi. Fusce nec dui vitae turpis elementum varius a in magna. Quisque aliquam arcu varius enim posuere, sit amet fermentum felis sagittis.<br><br>Vivamus posuere lacinia tellus at molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean sed felis in sem venenatis consectetur eu quis dui.</p>
+        </section>
+    </div>
+
+<!--Team card-->
+<section class="our-team">
+    <div class="container">
+        <div class="row">
+            {% if caretakers %}
+                {% for caretaker in caretakers %}
+                    <div class="col-lg-4 mb-3">
+                        <div class="card">
+                            <div class="img-container">
+                                <img src="{{ caretaker.photo.url }}" alt="" class="card-img-top  rounded-circle mb-3" width="460" height="345">
+                            </div>
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <h5 class="card-title text-info font-weight-bold">{{ caretaker.name }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ caretaker.job_position }}</h6>
+                                </div>
+                                <hr>
+                                <p class="card-text">{{ caretaker.description }}</p>
+                                <ul class="list-inline text-center">
+                                    <h6>Contact</h6>
+                                    <li><i class="fas fa-phone"></i> {{ caretaker.phone }} </li>
+                                    <li><i class="fas fa-envelope-open"></i> {{ caretaker.email }} </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+            <div class="col-md-2">
+            < p>Whoops no team member found &#128515; </p>
+            </div>
+            {% endif %}
+         
+            
+
+
+
+        </div>
+    </div>
+</section>
+
+</section>
+
+
+{% endblock %}

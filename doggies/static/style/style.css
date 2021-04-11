@@ -1,0 +1,288 @@
+body {
+    background-color: #ffffff;
+    font-family: 'Istok Web', sans-serif;
+    text-decoration: none;
+    padding-bottom: 70px;
+    
+
+}
+
+
+
+h6{
+    text-align: center;
+    font-size: 25px;
+}
+
+a{
+    color:white;
+}
+
+/* footer */
+.footer-basic {
+    padding:40px 0;
+    background-color:#ffffff;
+    color:#21368B;
+    margin-top: 140px;
+  }
+  
+  .footer-basic ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+  }
+  
+  .footer-basic li {
+    padding:0 10px;
+  }
+  
+  .footer-basic ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.8;
+  }
+  
+  .footer-basic ul a:hover {
+    opacity:1;
+  }
+  
+  .footer-basic .social {
+    text-align:center;
+    padding-bottom:25px;
+  }
+  
+  .footer-basic .social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #a2b9ee;
+    margin:0 8px;
+    color:inherit;
+    opacity:0.75;
+  }
+  
+  .footer-basic .social > a:hover {
+    opacity:0.9;
+  }
+  
+  .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#a2b9ef;
+    margin-bottom:0;
+  }
+  
+
+/* navbar */
+
+.logo {
+    width: 90px; }
+    
+.bg-dark{
+	background-color: #21368B!important;
+}
+
+.btn-dark{
+    background-color: #21368B!important;
+   
+
+}
+.navbar {
+    text-transform: uppercase;
+    font-size: 25px;
+    
+ }
+
+ #showcase {
+    background: linear-gradient((#9a9cea), (#a2b9ee));
+	background-image: url('/static/img/background.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #21368B;
+    background-blend-mode: screen;
+    min-height: 750px;
+    margin-top: 0;
+    padding: 15% 15% 0% 15%;
+    border: #21368B;
+
+ }
+.landing-text {
+	text-align: center;
+    color: rgb(0, 0, 0);
+
+
+  }
+  
+.main h1{
+    font-size: 30px;
+    font-weight: bold;
+
+
+}
+
+.main select{
+    height: 40px;
+    width: 90%;
+    outline: none;
+    padding:0px;
+    border: #21368B;
+}
+
+.main .btn2{
+    background-color: #21368B;
+    color:#ffffff;
+    outline: none;
+    border: none;
+}
+
+
+.card{
+    border:none;
+    background-color: #ffff;
+}
+
+
+#how{
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 2px;
+    list-style-type: none;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    margin-top: 300px;
+
+}
+
+
+/* search adopt*/
+#showcase2 {
+    background: linear-gradient((#9a9cea), (#a2b9ee));
+    background-image: url('/static/img/background.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #21368B;
+    background-blend-mode: screen;
+    min-height: 210px;
+    margin-top: 0;
+    padding: 2% 15% 0% 15%;
+    border: #21368B;
+
+ }
+
+
+
+
+/* pet card */
+
+.container{
+    margin-top: 8%;
+    margin-bottom: 8%;
+    
+}
+
+.inner{
+    overflow: hidden;
+}
+
+.inner img{
+    transition: all 1.5s ease;
+}
+
+.inner:hover img{
+    transform: scale(1.5);
+}
+
+/* LOGIN  */
+#login{
+    box-sizing: border-box;
+    background: #F4B4B7;
+    border-radius: 30px; 
+    border: none;
+    outline: none;
+    padding: 0; 
+}
+/* login picture */
+#picture{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    height: 500px;
+    
+    
+}
+/* contact picture */
+#picture2{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    height: 850px; 
+}
+
+
+/* LOGIN  */
+#contact-area{
+    box-sizing: border-box;
+    background: #F4B4B7;
+    border-radius: 30px; 
+    border: none;
+    outline: none;
+    padding: 0;
+    height: 850px; 
+
+   
+   
+}
+.btn1{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: #21368B;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    
+}
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+
+ /* about */
+
+ .bg-light{
+	background-color: #a2b9ee!important;
+}
+
+.text-info{
+    color: #F19820!important;
+}
+
+.btn-success{
+    background-color: #F19820!important;
+    border: none;
+    outline: none;
+}
+
+/* lost and found box */
+#lost{
+    box-sizing: border-box;
+    background: #F4B4B7;
+    border-radius: 30px; 
+    border: none;
+    outline: none;
+    padding: 20px 50px 20px 50px;
+   
+   
+}

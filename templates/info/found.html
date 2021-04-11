@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static%}
+{% load humanize%}
+
+{% block title %} Found {% endblock %}
+
+{% block content %}
+<section>
+<div class="d-flex justify-content-center my-5 mx-5" id="lost">
+<div class="col-lg-4 shadow-none">
+    <center>
+        <h1>Add found pet</h1>
+        <br>
+        {% if submitted %}
+        Thank you 
+        {% else %}
+            <form action="" method=POST enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+            <input type="submit" value="Submit" class="btn btn-success">
+            </form>
+        {% endif %}
+       
+    </center>
+</div>
+</div>
+</section>
+
+<!--All found pets list-->
+<center>
+<br>
+<div class="col-lg-2">
+    <a href= "{% url 'all_found' %}" class="btn btn-dark btn-block">Check the list</a>
+</div>
+</center>
+
+
+{% endblock %}

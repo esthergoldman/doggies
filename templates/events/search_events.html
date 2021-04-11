@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block title %} Events {% endblock %}
+
+{% block content %}
+
+
+<div class="container text-center col-lg-4">
+<h1>Events for {{keywords | naturaltime}}</h1>
+</div>
+{{form}}
+<!--events-->
+<section class="our-team">
+    <div class="container ">
+        <div class="row">
+            {%if keywords %}
+            {% for event in events %}
+                <div class="col-lg-4 mb-5">
+                <div class="card shadow">
+
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h5 class="card-title text-info">{{ event }}</h5>
+                                <i class="fas fa-map-marker-alt"></i> {{ event.location|title }}, {{ event.location.city|title }}</p>
+                            </div>
+                            <hr>
+                                <div class="row py-2 text-secondary text-center">
+                                    <div class="col-12">
+                                    <i class="far fa-calendar-alt"></i> Event Date: {{ event.event_date| naturalday }} </div>
+                                </div>
+                                <div class="row py-2 text-secondary text-center">
+                                    <div class="col-12">
+                                    Organizer: {{ event.organizer }} </div>
+                                </div>
+                        
+                                <div class="row py-2 text-secondary text-center">
+                                    <div class="col-12">
+                                    {{ event.description }} </div>
+                                </div>
+                        
+                        </div>
+                </div>
+            </div>
+            
+            {% endfor %}
+            {% else %}
+            <div class="col text-center">
+                <p>Whoops...<br>We couldn't find the event your were looking for at this time<br>Try again &#128054; </p>
+            </div>
+            {% endif %}
+        
+           
+        </div>
+    </div>
+</section>
+
+
+
+{{form.media}}
+
+{% endblock %}

@@ -12,9 +12,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'hl3$rngsscg_$t7ae%nj-)@8w82w7!ph=_5uqsi8%!0d%wnqx4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['doggiesdoggies.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -152,4 +152,3 @@ MESSAGE_TAGS = {
 }
 
 
-django_heroku.settings(locals())

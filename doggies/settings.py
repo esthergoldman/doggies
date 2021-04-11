@@ -137,13 +137,6 @@ MEDIA_URL = '/media/'
 
 
 
-# Email config GMAIL
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'esti.codes@gmail.com'
-EMAIL_HOST_PASSWORD = 'candida91'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Messages
 from django.contrib.messages import constants as messages
